@@ -1,0 +1,23 @@
+
+label{
+	font-size: 1.2em;
+	
+}
+#min{
+	margin:20px;
+}
+#max{
+	margin:20px;
+}
+#size{
+	margin: 10px;
+}
+#special{
+	margin: 10px;
+}
+#numbers{
+	margin: 10px;
+}
+button{
+	margin-left: 120px;
+}

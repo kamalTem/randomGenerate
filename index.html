@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>svoy</title>
+   <link rel="stylesheet" type="text/css" href="style.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+</head>
+<body>
+      <label>RANDOM GENERATION</label><br/>
+      the MAXIMUMnumber of characters<input type="number" id="max" ><br/>
+      the MINIMUM number of characters <input type="number" id="min" ><br/>
+      String Length<input type="number" id="size"><br/>
+
+         
+<!-- неймы поменял что бы у каждоо раздела была своя кнопка,а то была одна на всех-->
+    <label>Letter Size</label><br/>
+      <input type="radio" id="b_l"
+        onMouseDown="this.isChecked=this.checked;" 
+        onClick="this.checked=!this.isChecked;" 
+        name="myradio" value="0"/> Big
+      <input type="radio" id="s_l"
+        onMouseDown="this.isChecked=this.checked;"
+        onClick="this.checked=!this.isChecked;"
+        name="myradio" value="1"/> Small <br/>
+      
+    <label>Numbers</label><br/>
+      <input type="radio" id="yes"
+        onMouseDown="this.isChecked=this.checked;" 
+        onClick="this.checked=!this.isChecked;" 
+        name="myrad" value="0"/> YES
+      <input type="radio" id="no"
+        onMouseDown="this.isChecked=this.checked;"
+        onClick="this.checked=!this.isChecked;"
+        name="myrad" value="1"/> NO <br/>
+
+    <label>Special Characters</label><br/>
+      <input type="radio" id="y"
+        onMouseDown="this.isChecked=this.checked;" 
+        onClick="this.checked=!this.isChecked;" 
+        name="myr" value="0"/> YES
+      <input type="radio" id="n"
+        onMouseDown="this.isChecked=this.checked;"
+        onClick="this.checked=!this.isChecked;"
+        name="myr" value="1"/> NO
+    
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<form name="randform">
+<input type="button" value="Create Random String" onClick="randomString();">&nbsp;
+<input type="text" name="randomfield" value="">
+</form>
+<script>
+
+
+function randomString() {//но если вставить без if то длина стринги правильная получаеться
+  var chars = "0123456789abcdefghiklmnopqrstuvwxyz";
+  var special = "!@#$%^&*?№";
+  var ch_big = "ABCDEFGHIJKLMNOPQRSTUVWXTZ";
+  var string_length = $("#size").val();
+  var randomstring = '';
+
+
+
+
+
+  for (var i=0; i<string_length; i++) {
+    if($("#y").prop("checked")){
+    var rnum = Math.floor(Math.random() * (chars.length+special.length));
+    randomstring += chars.substring(rnum,rnum+1)+special.substring(rnum,rnum+1);
+
+    }
+    else{
+    var rnum = Math.floor(Math.random() * chars.length);
+    randomstring += chars.substring(rnum,rnum+1);
+
+    }
+  if($("#b_l").prop("checked")){
+    var rnum = Math.floor(Math.random() * (chars.length+ch_big.length));
+    randomstring += chars.substring(rnum,rnum+1)+ch_big.substring(rnum,rnum+1);
+
+  }
+  else{
+    var rnum = Math.floor(Math.random() * chars.length);
+    randomstring += chars.substring(rnum,rnum+1);
+  }
+  
+  }
+  
+  document.randform.randomfield.value = randomstring;
+  
+}
+</script>
+
+
+
+
+</script>
+</body>
+</html>
